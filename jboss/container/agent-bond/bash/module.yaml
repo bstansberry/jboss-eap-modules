@@ -1,0 +1,26 @@
+schema_version: 1
+
+name: jboss.container.agent-bond.bash
+version: '1.0'
+description: ^
+  Provides support for configuring Prometheus.  Basic usage is
+  JAVA_OPTS="$JAVA_OPTS $(source $JBOSS_CONTAINER_AGENT_BOND_MODULE/agent-bond-opts; get_agent_bond_opts)"
+
+envs:
+- name: JBOSS_CONTAINER_AGENT_BOND_MODULE
+  value: /opt/jboss/container/agent-bond
+- name: AB_PROMETHEUS_JMX_EXPORTER_PORT
+  value: 9799
+- name: AB_PROMETHEUS_JMX_EXPORTER_CONFIG
+  value: /opt/jboss/container/prometheus/etc/jmx-exporter-config.yaml
+
+execute:
+- script: configure.sh
+
+artifacts:
+- path: agent-bond-agent-1.2-SNAPSHOT.jar
+  md5: 620d5c068e4ca408ad99c244f8706fce
+
+modules:
+  install:
+  - name: jboss.container.agent-bond.api

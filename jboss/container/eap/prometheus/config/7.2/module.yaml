@@ -5,7 +5,7 @@ description: Provides Prometheus JMX Exporter configuration for use with EAP 7.2
 
 modules:
   install:
-  - name: jboss.container.eap.prometheus.agent
+  - name: jboss.container.eap.agent-bond.agent
 
 execute:
 - script: configure.sh

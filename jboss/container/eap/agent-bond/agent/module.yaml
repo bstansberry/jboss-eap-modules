@@ -1,0 +1,12 @@
+schema_version: 1
+name: jboss.container.eap.agent-bond.agent
+version: '1.0'
+description: Provides support for configuring the agent-bond wrapped Prometheus JMX Exporter Java agent within EAP
+
+modules:
+  install:
+  - name: jboss.container.agent-bond.bash
+
+execute:
+- script: configure.sh
+  user: '185'
